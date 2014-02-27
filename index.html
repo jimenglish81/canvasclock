@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">	
+<meta charset="utf-8">
+<title>Clock</title>
+<link href='http://fonts.googleapis.com/css?family=Monsieur+La+Doulaise' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+	background-color: #f8f8ff;
+	margin: 0;
+	padding: 5% 1%;
+}
+</style>
+</head>
+<body>
+<div id="container"></div>
+<script src="clock.js"></script>
+<script>
+	var uA = navigator.userAgent;
+	if((uA.match(/iPhone/i)) ||  (uA.match(/iPod/i))) {
+		document.body.style.marginBottom = '80px';
+		document.body.style.paddingTop = '20%';
+		setTimeout(function () {
+			window.scrollTo(0, 1);
+		}, 100);
+	}
+
+	(new Clock(document.getElementById('container'), (window.innerHeight && window.innerHeight * 0.9) || 300)
+				.withMinuteMarks()
+				.withRomanNumerals()
+				.withLabel('James watches', 'Monsieur La Doulaise')
+				.initialise());
+</script>
+</body>
+</html>
